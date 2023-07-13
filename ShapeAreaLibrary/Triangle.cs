@@ -15,4 +15,13 @@ public sealed class Triangle : AbstractShape
 
         return double.Sqrt(p * (p - _params.FirstEdge) * (p - _params.SecondEdge) * (p - _params.ThirdEdge));
     }
+
+    public bool IsRightTriangle()
+    {
+        var edges = new[] { _params.FirstEdge, _params.SecondEdge, _params.ThirdEdge };
+        var hypotenuse = edges.Max();
+        edges = edges.Except(new double[] { hypotenuse }).ToArray();
+
+        return hypotenuse * hypotenuse == Array.ConvertAll(edges, x => x * x).Sum();
+    }
 }

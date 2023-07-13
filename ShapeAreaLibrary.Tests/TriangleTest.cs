@@ -16,4 +16,12 @@ public class TriangleTest
             triangle.Area()
         );
     }
+
+    [Fact]
+    public void IsRightTriangle()
+    {
+        var triangleParams = new TriangleParams { FirstEdge = 3.0, SecondEdge = 4.0, ThirdEdge = 5.0 };
+        var triangle = new Triangle(triangleParams);
+        Assert.True(triangle.IsRightTriangle());
+    }
 }
