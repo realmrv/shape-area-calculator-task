@@ -5,7 +5,8 @@ public class CircleTest
     [Fact]
     public void CalculateArea()
     {
-        var circle = new Circle(new CircleParams { Radius = 3.0 });
-        Assert.Equal(28.274333882308138, circle.Area());
+        var circleParams = new CircleParams { Radius = 3.0 };
+        var circle = new Circle(circleParams);
+        Assert.Equal(double.Pi * circleParams.Radius * circleParams.Radius, circle.Area());
     }
 }

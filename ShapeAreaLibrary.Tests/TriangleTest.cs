@@ -1,11 +1,19 @@
 namespace ShapeAreaLibrary.Tests;
 
-public class CircleTest
+public class TriangleTest
 {
     [Fact]
     public void CalculateArea()
     {
-        var circle = new Circle(new CircleParams { Radius = 3.0 });
-        Assert.Equal(28.274333882308138, circle.Area());
+        var triangleParams = new TriangleParams { FirstEdge = 3.0, SecondEdge = 4.0, ThirdEdge = 5.0 };
+        var triangle = new Triangle(triangleParams);
+
+        var p = triangleParams.FirstEdge * triangleParams.SecondEdge * triangleParams.ThirdEdge / 2.0;
+        Assert.Equal(
+            double.Sqrt(
+                p * (p - triangleParams.FirstEdge) * (p - triangleParams.SecondEdge) * (p - triangleParams.ThirdEdge)
+            ),
+            triangle.Area()
+        );
     }
 }

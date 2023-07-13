@@ -1,6 +1,5 @@
 namespace ShapeAreaLibrary;
 
-public interface ShapeParams
+public interface IShapeParams
 {
-    
 }
